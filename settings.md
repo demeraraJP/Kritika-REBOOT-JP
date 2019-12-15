@@ -4,15 +4,7 @@
 特に低スペックの PC やノート PC などに有効です。  
 頻繁にクラッシュするような方も一度目を通してみてください。
 
-ゲーム外設定では、文字サイズの変更方法やキー設定の方法などについても触れています。
-
-ゲームフォルダは Steam のライブラリで、  
-KritikaREBOOT を右クリック -> 管理 -> ローカルファイルを閲覧  
-で、一発で開けます。
-
-注意：オプションファイルを編集する行為は、一度読んですぐに理解できる人だけ行ってください。よくわからないのに下手にいじるとゲームファイルを破損させてしまい再インストールするはめになるかもしれません。
-
-
+ゲームフォルダは Steam のライブラリで、左に並んでるタイトルのKritikaREBOOT を右クリック -> [管理] -> [ローカルファイルを閲覧] で、一発で開けます。
 
 # 目次
 
@@ -23,14 +15,11 @@ KritikaREBOOT を右クリック -> 管理 -> ローカルファイルを閲覧
   3.[ダメージ表示の簡略化](#3ダメージ表示の簡略化)  
   4.[備考](#4備考)
 
-- ゲーム外設定(オプションファイルの編集)
+- ゲーム外設定
 
-  1.[フリーズやクラッシュを改善](#1フリーズやクラッシュを改善)  
+  1.[FPSを60に固定してフリーズやクラッシュを改善](#1FPSを60に固定してフリーズやクラッシュを改善)  
   2.[解像度の設定が毎回リセットされてしまう問題](#2解像度の設定が毎回リセットされてしまう問題)  
-  3.[文字が小さくて読めない場合](#3文字が小さくて読めない場合)  
-  4.[アイテムを自動で拾う](#4アイテムを自動で拾う)  
-  5.[一度のクリックで二回分クリックしたことにする](#5一度のクリックで二回分クリックしたことにする)
-
+  3.[exeファイルのプロパティを確認](#3exeファイルのプロパティを確認)
 
 
 # ゲーム内設定
@@ -81,13 +70,13 @@ PC によってはこれだけで大幅にラグが改善します。とりあ�
 
 
 
-# ゲーム外設定(オプションファイルの編集)
+# ゲーム外設定
 
-## 1.フリーズやクラッシュを改善
+## 1.FPSを60に固定してフリーズやクラッシュを改善
 
 特にレイドで、落ちたり固まったりするという人は以下に記す方法を試してみてください。
 
-編集するファイルはデフォルト設定の場合次の場所にあります  
+編集するファイルはデフォルト設定の場合、次の場所にあります  
 "C:\Program Files (x86)\Steam\steamapps\common\Kritika\resource\applemain"
 
 この applemain のフォルダの中から以下の 3 つのファイルを探します。
@@ -96,7 +85,8 @@ PC によってはこれだけで大幅にラグが改善します。とりあ�
 - DefaultLow.xml
 - DefaultMedium.xml
 
-これらのファイルを右クリックして、[メモ帳で開く]を選択。表示されない場合は、[その他のプログラムで開く]から[メモ帳]を探して選択してください。  
+これらのファイルを右クリックして、[メモ帳で開く]を選択。表示されない場合は、[その他のプログラムで開く]から[メモ帳]を探して選択してください。
+
 開いたら次の一行を探し、 **100** という数字を **60** に書き換えます。
 
 `<ForegroundMaxFrameRate type="float" value="100"/>`
@@ -116,7 +106,7 @@ PC によってはこれだけで大幅にラグが改善します。とりあ�
 
 ## 2.解像度の設定が毎回リセットされてしまう問題
 
-ゲームを起動するたびに、設定したはずの解像度がリセットされてしまう問題の解決方法です。  
+モニターと同じ解像度に設定しても、起動するたびに解像度がリセット(変更)されてしまう問題の解決方法です。  
 これを試してもダメな人もいるようですが、一応参考程度に載せておきます。
 
 場所："C:\Program Files (x86)\Steam\steamapps\common\Kritika"
@@ -152,175 +142,17 @@ Kritika の exe ファイルが入ってるフォルダです。[はじめに](#
 書き換えたら上書き保存(Ctrl+S)してメモ帳を閉じてください。
 
 
-## 3.文字が小さくて読めない場合
+## 3.exeファイルのプロパティを確認
 
-英語フォントは日本語フォントに比べてどうしても文字が小さく見えます。  
-小さくて読めないという人は、ゲームフォルダの中にあるテキストファイルをメモ帳等で開いてフォントサイズを書き換えることで、文字の大きさを変えることができます。
+[はじめに](#はじめに)の方法でゲームフォルダを開きます。  
+そこに **KRITIKA_Client.exe** という起動ファイルがあるので、これを右クリックして[プロパティ]を選択します。
 
-場所："C:\Program Files (x86)\Steam\steamapps\common\Kritika\resource\Common\database"  
-この場所にある **FontConfig_en-EN.txt** というテキストファイルを右クリックして、[メモ帳で開く]を選択。表示されない場合は、[その他のプログラムで開く]から[メモ帳]を探してください。
+開いたら [互換性] のタブを開きます。  
+下の方にある、「全画面表示の最適化を無効にする」にチェックが入っていた場合、**チェックを外します**。
 
-※PCのスペックが低い場合、データが若干大きいためにメモ帳がフリーズしたりクラッシュして開けないことがあります。その場合は、「notepad++」や「サクラエディタ」等の無料で軽量のテキストエディタをインストールして使ってみてください。ちょっと調べれば使い方はすぐにわかります。
+その下の「管理者としてこのプログラムを実行する」に**チェックを入れます**。
 
-さて、メモ帳やテキストエディタ等で **FontConfig_en-EN.txt** を開いたら、上から 3 行目にある
+次にその下にある「高DPI設定の変更」をクリックします。  
+「高DPIスケール設定の上書き」の欄にある「高いDPIスケールの動作を上書きします。」に**チェックを入れます**。
 
-`map "$NormalFont" = "Ubuntu Condensed" Normal 1`
-
-という項目の最後の数字を書き換えます。  
-1 が標準の大きさで、1.1 にすると 10%大きくなります。1.1~1.5 くらいまでの好きな数字に書き換えてください。おすすめは 1.2 です。1.3 以上になると文字がはみ出すようになります。
-
-それで、
-
-`map "$NormalFont" = "Ubuntu Condensed" Normal 1.2`
-
-という風に書き換えられたらファイルを上書き保存(Ctrl+S)してファイルを閉じてください。
-
-注意：数字は必ず半角で入力してください。全角だと認識してくれません。
-
-
-## 4.アイテムを自動で拾う
-
-ペットがいるから関係ないや  
-と思うかもしれませんが、ペットがいても F キーを押すと素早くアイテムが拾えるのです。  
-その F キーを前進キー(W)に割り当てて一度でも前進するとアイテム自動拾得機能をオンにし、指を離しても自動的に素早くアイテムが拾えるようにするテクニックです。  
-若干内容が高度かもしれません。
-
-まずは、[はじめに](#はじめに)の方法でゲームフォルダを開きましょう。  
-フォルダ内にある **option.xml** をコピー(Ctrl+C)して同じ場所に複製(Ctrl+V)します。
-
-- option.xml
-- option\_コピー.xml
-
-次に、ファイル名の"コピー"の部分を効果を適用させたい自身のキャラクター名に書き換えます。  
-ファイル名は、`option[半角アンダーバー][キャラクター名].xml` となります。
-
-- option.xml
-- option_Demerara.xml
-
-書き換え終わったら、そのリネームしたファイルを右クリックしてメモ帳で開きます。
-
-ファイルが開いたら、検索機能(Ctrl+F)で"pick"を検索します。
-
-すると次のブロックが見つかると思います。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="F" />
-    <name type="wstring" value="InGamePage.BeginPickUpItem" />
-    <state type="wstring" value="press" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="F" />
-    <name type="wstring" value="InGamePage.EndPickUpItem" />
-    <state type="wstring" value="release" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-上のブロックは、F キーを押している間(press)、アイテムを拾う(InGamePage.BeginPickUpItem)というコードで、下のブロックは、F キーを離した(release)とき、アイテムを拾うことをやめる(InGamePage.EndPickUpItem)というコードです。
-
-この上のブロックの`<key type="wstring" value="F" />`の F を W に書き換えます。
-
-そして下のブロックにもある同じ`<key type="wstring" value="F" />`の F を F4 にします。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="W" />
-    <name type="wstring" value="InGamePage.BeginPickUpItem" />
-    <state type="wstring" value="press" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="F4" />
-    <name type="wstring" value="InGamePage.EndPickUpItem" />
-    <state type="wstring" value="release" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-これで前進キー(W)を一度でも押すと、ずっと W を押し続けている状態になり自動でアイテムを拾うようになります。  
-そして、この状態を解除するためのキーを F4 に設定しました。つまり、リスタートするたびにこの自動拾得機能を解除します。  
-こうしないとリスタート直後にアイテムを拾うコマンドが動き続けるために、"can't pick up items"(アイテムを拾えません)というエラーログが大量に流れることになります。
-
-これはあくまで一つの例です。自分好みのキーに設定してみてください。
-
-ファイルを上書き保存(Ctrl+S)してメモ帳を閉じたら完成です。
-
-全てのキャラクターに適用させるためには、完成したファイルをコピペでキャラクターの数だけ増やして、それぞれのキャラクター名にリネームするだけです。
-
-※キャラクターの Lv が 15 以上じゃないと適用されないらしいです。あと、大型のアプデとかあると初期化されることがあります。バックアップ取っておくと吉。
-
-
-## 5.一度のクリックで二回分クリックしたことにする
-
-影術師でクライゼンシュラークを早打ちするために使われる(使われた)テクニックです。
-
-※手動で連打する場合に限り有効です。Auto-Attack では発動しません。
-
-4.[アイテムを自動で拾う](#4アイテムを自動で拾う)で作ったキャラクター毎のオプションファイルを開きます。作ってない方は、このトピックを読んで作成してください。
-
-今度は"and no"と検索します。
-
-すると、ヒット数 3 件で次のブロックが表示されるはずです。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="down" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="DoubleClick" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk_up" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-このブロックの下に次のブロックを追加します。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="DoubleClick" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk_up" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-これだけです。
-あとは上書き保存(Ctrl+S)してメモ帳を閉じれば完成です。
-
-このブロックを追加することで、マウスの左クリックを一回押した際(厳密に言うと離した際)、二度攻撃を行うようになり、**手動で連打する場合に限り**クライゼンシュラークを素早く打てるようになります。
-
-ただ、残念ながら(?) Guns 刻印が改編されたことにより、クライゼンシュラークの発射回数が減って Auto-Attack でも十分素早く打てるようになってしまいました。この裏技が使われることはもうないかもしれません…。
+OKを押してプロパティを閉じたら、PCを再起動します。

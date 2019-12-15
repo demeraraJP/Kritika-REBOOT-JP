@@ -26,53 +26,60 @@ Github の使い方がわからない方は Twitter や Steam、ゲーム内で�
 
 # キャラクター名一覧
 
+ソースが記載されているのは翻訳予定のキャラ。変更なしはバランス調整が今の所ないキャラで翻訳の予定なし。
+
 ## 戦士(Warrior)
 
-- 爆魔(Fire Lord / Fire Blast)
-- 狂戦士(Berserker)
-- 魔剣士(Doom Blade)
+- 爆魔(Fire Lord / Fire Blast) [ソース](https://translate.google.com/translate?hl=ja&sl=auto&tl=ja&u=http%3A%2F%2Fhkt.hangame.com%2FNews%2FDevnote%2F108625)
+- 狂戦士(Berserker) [ソース](https://translate.google.com/translate?hl=ja&sl=auto&tl=ja&u=http%3A%2F%2Fhkt.hangame.com%2FNews%2FDevnote%2F108625)
+- 魔剣士(Doom Blade) 変更なし
 
 ## 盗賊(Rogue)
 
-- 天狼主(Wolf Guardian)
-- 体術師(Catspaw)
-- 暗殺(Assassin)
+- 天狼主(Wolf Guardian) [ソース](https://translate.google.com/translate?hl=ja&sl=auto&tl=ja&u=http%3A%2F%2Fhkt.hangame.com%2FNews%2FDevnote%2F108625)
+- 体術師(Catspaw) 変更なし
+- 暗殺(Assassin) バランス調整予定あり
 
 ## 魔術師(Gunmage)
 
-- 時空間術師(Dimension Controler / Warp Mage)
+- 時空間術師(Dimension Controler / Warp Mage) [ソース](https://translate.google.com/translate?hl=ja&sl=auto&tl=ja&u=http%3A%2F%2Fhkt.hangame.com%2FNews%2FDevnote%2F108625)
 - 影術師(Shadow Mage) [刻印](/ShadowMage.md)
-- 冷気術師(Frost Mage)
+- 冷気術師(Frost Mage) [アイストリガー3セットの効果に変更あり](https://translate.google.com/translate?hl=ja&sl=auto&tl=ja&u=http%3A%2F%2Fhkt.hangame.com%2FNews%2FDevnote%2F108625)
 
 ## 鎌術士(Reaper)
 
-- 悩殺羅刹(Valkyrie / Rakshasa)
-- 血妖花(Vamp)
+- 悩殺羅刹(Valkyrie / Rakshasa) 変更なし
+- 血妖花(Vamp) [ソース(原案)](https://translate.google.com/translate?hl=ja&sl=auto&tl=ja&u=http%3A%2F%2Fhkt.hangame.com%2FNews%2FDevnote%2F108625) 天狼と爆魔のページに追加あり
 
 ## 魔法少女(Noblia)
 
-- 精霊召喚士(Elemental Farily / Elemancer)
-- 機工士(Creator / Artifex / Dimension Controler)
-- 魔砲少女(Halomage)
+- 精霊召喚士(Elemental Farily / Elemancer) 変更なし
+- 機工士(Creator / Artifex / Dimension Controler) 時空と同じページ
+- 魔砲少女(Halomage) 変更なし
 
 ## 格闘家(Monk)
 
-- 黒帝(Void Monk / Dark Worship / Dark Lord / Dark Monk)
-- 聖王(Galactic Disciple / Star Monk)
-- スチームウォーカー(Steam Walker)
+- 黒帝(Void Monk / Dark Worship / Dark Lord / Dark Monk) 変更なし
+- 聖王(Galactic Disciple / Star Monk) 天狼と同じページ 爆魔のページに追加あり
+- スチームウォーカー(Steam Walker) 天狼と同じページ 爆魔のページに追加あり
 
 ## 外伝キャラ
 
-- エクレア(Eclair / Psion)
-- ホンリョン(HongRyoung / Archer)
+- エクレア(Eclair / Psion) 時空と同じページ
+- ホンリョン(HongRyoung / Archer) 変更なし
 
 
 
 # クラッシュ/フリーズ対策
 
-ゲームが重たい。よく落ちる、固まる、といった人は[こちらのページ](/settings.md)を参考にして下さい。  
-文字サイズを変更したり、自動でアイテムを拾得できるようになる裏技など、オプションファイルの編集方法なども紹介してます。
+ゲームが重たい。よく落ちる、固まる、といった人は[こちらのページ](/settings.md)を参考にして下さい。
 
+
+# 設定集
+
+オプションファイルの編集方法を紹介しています。  
+アイテムを自動で拾うようにしたり、一度に二回攻撃できるようにしたりできます。  
+設定集は[こちら](/options.md)
 
 
 # LICENSE
