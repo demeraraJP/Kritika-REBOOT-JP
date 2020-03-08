@@ -7,6 +7,12 @@
 ※万が一この方法を利用したことにより何かしらの損害が発生したとしてもdemeraraJPは一切責任を負いません。全て自己責任でお願いします。  
 ※この方法は韓国でサービスが開始された当初から利用されているもので、運営も公式の掲示板で認めた合法な手段です。自身も日本サービスの際に運営に直接確認しましたが、オプションファイルの編集は問題ないとの返答を頂いています。スクリプトを書き換えたり、ショップポイントを不正に得るようなチートやハッキングの類ではありません。あくまでオプションの変更が目的です。それでも気になるような方は読まないでください。
 
+# 警告
+2020/03/04のアップデート以降、オプションファイルを変更して使っている一部のプレイヤーにゲームプレイに支障をきたす不具合が発生するようになりました。運営からも、「オプションファイルを変更して使用すると予期せぬ不具合が発生する可能性があるため、オプションファイルを変更する行為は今すぐ中止してください。」とのアナウンスがありました。  
+自身も右クリックの挙動が怪しくなってきたため、一度全ての個別に設定したオプションファイルを削除し、ゲーム内でキー設定を初期化、再設定後再び大元のオプションファイル(option.xml)にてアイテム自動習得の設定だけ変更して使用しています。とりあえずこれでしばらく様子を見ます。  
+恐らくアプデの度にこの部分は初期化されるため、同じ設定をし直すことになると思います。  
+このページに載せていた項目３と４を削除しました。
+
 
 ## テキストエディタの導入
 
@@ -39,7 +45,8 @@
 
 _database_ フォルダの中にある **FontConfig_en-EN.txt** というテキストファイルを右クリックして、[メモ帳で開く]を選択。表示されない場合は、[その他のプログラムで開く]から[メモ帳]を探してください。
 
-※PCのスペックが低い場合、データが若干大きいためにメモ帳がフリーズしたりクラッシュして開けないことがあります。その場合は、[テキストエディタの導入](#テキストエディタの導入)を検討してみてください。
+※PCのスペックが低い場合、データが若干大きいためにメモ帳がフリーズしたりクラッシュして開けないことがあります。その場合は、[テキストエディタの導入](#テキストエディタの導入)を検討してみてください。  
+※日本語のテキストは **FontConfig_ja-JP.txt** です。
 
 さて、メモ帳やテキストエディタ等で **FontConfig_en-EN.txt** を開いたら、上から 3 行目にある
 
@@ -138,112 +145,5 @@ _database_ フォルダの中にある **FontConfig_en-EN.txt** というテキ�
 
 全てのキャラクターに適用させるためには、完成したファイルをコピペでキャラクターの数だけ増やして、それぞれのキャラクター名にリネームするだけです。
 
-※キャラクターの Lv が 15 以上じゃないと適用されないらしいです。
-
-## 3.一度のクリックで二回分クリックしたことにする
-
-影術師でクライゼンシュラークを早打ちするために使われる(使われた)テクニックです。
-
-※手動で連打する場合に限り有効です。Auto-Attack では発動しません。
-
-4.[アイテムを自動で拾う](#4アイテムを自動で拾う)で作ったキャラクター毎のオプションファイルを開きます。作ってない方は、このトピックを読んで作成してください。
-
-今度は"and no"と検索します。
-
-すると、ヒット数 3 件で次のブロックが表示されるはずです。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="down" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="DoubleClick" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk_up" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-このブロックの下に次のブロックを追加します。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="DoubleClick" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk_up" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-これだけです。
-あとは上書き保存(Ctrl+S)してメモ帳を閉じれば完成です。
-
-このブロックを追加することで、マウスの左クリックを一回押した際(厳密に言うと離した際)、二度攻撃を行うようになり、**手動で連打する場合に限り**クライゼンシュラークを素早く打てるようになります。
-
-ただ、残念ながら(?) Guns 刻印が改編されたことにより、クライゼンシュラークの発射回数が減って Auto-Attack でも十分素早く打てるようになってしまいました。この裏技が使われることはもうないかもしれません…。
-
-
-## 4.無限通常攻撃
-
-もうここまでくるとバグ技みたいなもんですが、こういう色んなことがオプションファイルで設定できてしまうというのもKRITIKAの面白さかもしれません。最近のゲームがほとんどレジストリで管理するようになってるので、こんな風に自由には設定できなかったりします。
-
-では、早速その方法の紹介です。今回は至って簡単です。
-[一度のクリックで二回分クリックしたことにする](#3一度のクリックで二回分クリックしたことにする)で利用した"NormalAtk"のコードを検索します。
-
-```xml
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="down" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk" />
-    <state type="wstring" value="DoubleClick" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-<item type="Apple::InputCommandItem">
-    <key type="wstring" value="LeftMouse" />
-    <name type="wstring" value="InGamePage.ActionCommand NormalAtk_up" />
-    <state type="wstring" value="up" />
-    <activeState type="wstring" value="" />
-    <withKey type="wstring" value="" />
-</item>
-```
-
-このブロックの3つ目だけ、3行目の最後が `NormalAtk_up` になっているのがわかると思います。  
-この最後の `_up` を消します。以上です。
-
-注意：[一度のクリックで二回分クリックしたことにする](#3一度のクリックで二回分クリックしたことにする)で変更を加えたキャラクターでは設定しないでください。多重クリックが発生してしまいます。どちらか一方の方法だけ使用するようにしてください。
-
-これを設定した状態でステージに入場し、一度でも左クリックを押すと永遠に通常攻撃をし続けます。特定のスキルで入力をキャンセルするかステージをクリアするまで止まりません。狂戦士のマッドラッシュとかめちゃくちゃ速くなりますが、まあ不便ですよね。うん。
+※キャラクターの Lv が 15 以上じゃないと適用されません。  
+※03/04追記：アプデの度に大元のオプションファイルに変更があるため、その度に大元のファイルからコピーし直す必要があります。自分は個別の設定ファイルを全て削除して、大元のファイルにのみこの変更を施すことにしました。アプデの度に再設定する必要はありますが、不具合を回避するためなので仕方ありません。
